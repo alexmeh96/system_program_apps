@@ -18,3 +18,4 @@ panic = "abort"
 #strip = true        # Strip symbols from binary*
 
 [dependencies]
+bootloader = "0.9"
