@@ -1,0 +1,7 @@
+write_gpt*
+*.EFI
+*.img
+*.inf
+*.INF
+*.vhd
+*.txt
