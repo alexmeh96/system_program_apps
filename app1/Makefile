@@ -9,8 +9,9 @@ clean:
 	rm -rf $(BUILD_DIR)
 
 run: $(BUILD_DIR)/main.img
-	qemu-system-i386 -fda build/main.img
-
+	qemu-system-i386 -boot c -m 256 -hda build/main.img
+debug: $(BUILD_DIR)/main.img
+	qemu-system-i386 -boot c -m 256 -hda build/main.img -s -S
 
 $(BUILD_DIR): 
 	mkdir $(BUILD_DIR)
