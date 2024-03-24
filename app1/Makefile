@@ -15,3 +15,6 @@ $(BUILD_DIR):
 
 clean:
 	rm -rf $(BUILD_DIR)
+
+run: $(BUILD_DIR)/main.img
+	qemu-system-i386 -fda build/main.img
