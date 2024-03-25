@@ -1,14 +1,8 @@
-ORG 0x7c00
+ORG 0x0
 BITS 16
 
-main:
-    mov ax, 0
-    mov ds, ax
-    mov es, ax
-    mov ss, ax
-    
-    mov sp, 0x7c00
-    mov si, os_boot_msg
+start:
+    mov si,os_boot_msg
     call print
     hlt
 
@@ -22,10 +16,10 @@ print:
 
 print_loop:
     lodsb
-    or al, al
+    or al,al
     jz done_print
 
-    mov ah, 0x0e
+    mov ah, 0x0E
     mov bh, 0
     int 0x10
 
@@ -37,8 +31,4 @@ done_print:
     pop si
     ret
 
-os_boot_msg: db 'Our os has booted!', 0x0d, 0x0a, 0
-
-
-TIMES 510-($-$$) db 0
-dw 0AA55h
+os_boot_msg: db 'Our OS has booted!!!', 0x0D, 0x0A, 0
